@@ -14,5 +14,20 @@
             class="com.marcwi.eclipse.jdt.justmycode.Startup">
       </startup>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.jdt.debug.ui.JavaDebugPreferencePage"
+            class="com.marcwi.eclipse.jdt.justmycode.preferences.JustMyCodePreferencePage"
+            id="com.marcwi.eclipse.jdt.justmycode.preferences.JustMyCodePreferencePage"
+            name="Just My Code">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.marcwi.eclipse.jdt.justmycode.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>
