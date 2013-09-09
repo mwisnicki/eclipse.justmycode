@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.marcwi.eclipse.jdt.justmycode_1.0.0.201309090526.jar" id="com.marcwi.eclipse.jdt.justmycode" version="1.0.0.201309090526">
+      <category name="jdt.extensions"/>
+   </feature>
+   <category-def name="jdt.extensions" label="JDT Extensions"/>
+</site>
