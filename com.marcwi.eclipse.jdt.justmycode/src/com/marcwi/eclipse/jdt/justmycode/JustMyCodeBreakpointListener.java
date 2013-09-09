@@ -1,8 +1,5 @@
 package com.marcwi.eclipse.jdt.justmycode;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.DebugException;
@@ -18,7 +15,7 @@ import org.eclipse.jdt.debug.core.IJavaThread;
 import org.eclipse.jdt.debug.core.IJavaType;
 
 public class JustMyCodeBreakpointListener implements IJavaBreakpointListener {
-	
+
 	@Override
 	public void addingBreakpoint(IJavaDebugTarget target, IJavaBreakpoint breakpoint) {
 	}
@@ -34,31 +31,22 @@ public class JustMyCodeBreakpointListener implements IJavaBreakpointListener {
 
 	@Override
 	public int breakpointHit(IJavaThread thread, IJavaBreakpoint breakpoint) {
-		ISourceLocator sourceLocator = thread.getLaunch().getSourceLocator();
-		StringWriter sw = new StringWriter();
-		PrintWriter pw = new PrintWriter(sw);
-		boolean myCode = false;
 		try {
+			ISourceLocator sourceLocator = thread.getLaunch().getSourceLocator();
 			IStackFrame[] frames = thread.getStackFrames();
 			for (int i = 0; i < frames.length; i++) {
 				IJavaStackFrame frame = (IJavaStackFrame) frames[i];
 				Object sourceElement = sourceLocator.getSourceElement(frame);
 				if (sourceElement instanceof IFile) {
-					IFile file = (IFile) sourceElement;
+					Log.log(Status.INFO, "breakpointHit %s %s", thread.getName(), frame.getName());
+					// TODO should focus on this frame when suspended
+					return DONT_CARE;
 				}
-				pw.printf(" [%2d] %s.%s %s (%s:%d) [%s]\n", i, frame.getDeclaringTypeName(), frame.getName(),
-						frame.getSourceName(),
-						frame.getSourcePath(), frame.getLineNumber(),
-						sourceElement != null ? sourceElement.getClass() : null);
-				if (frame.getSourcePath().startsWith("justmycodetest\\"))
-					myCode = true;
 			}
-			pw.flush();
 		} catch (DebugException e) {
-			Log.log(Status.ERROR, e, Activator.PLUGIN_ID, "breakpointHit error");
+			Log.log(Status.ERROR, e, JustMyCodePlugin.PLUGIN_ID, "breakpointHit error");
 		}
-		Log.log(Status.INFO, "breakpointHit %s %s\n%s", thread, breakpoint, sw.toString());
-		return myCode ? DONT_CARE : DONT_SUSPEND;
+		return DONT_SUSPEND;
 	}
 
 	@Override

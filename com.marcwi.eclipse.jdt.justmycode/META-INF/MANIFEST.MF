@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Just My Code for Eclipse JDT debugger
 Bundle-SymbolicName: com.marcwi.eclipse.jdt.justmycode;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.marcwi.eclipse.jdt.justmycode.Activator
+Bundle-Activator: com.marcwi.eclipse.jdt.justmycode.JustMyCodePlugin
 Bundle-Vendor: mwisnicki@gmail.com
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

@@ -14,13 +14,5 @@
             class="com.marcwi.eclipse.jdt.justmycode.Startup">
       </startup>
    </extension>
-   <extension
-         point="org.eclipse.debug.core.breakpoints">
-      <breakpoint
-            class="com.marcwi.eclipse.jdt.justmycode.Breakpoint1"
-            id="com.marcwi.eclipse.jdt.justmycode.breakpoint1"
-            markerType="com.marcwi.eclipse.jdt.justmycode.breakpoint1">
-      </breakpoint>
-   </extension>
 
 </plugin>
