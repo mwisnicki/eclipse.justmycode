@@ -31,10 +31,6 @@ public class JustMyCodeBreakpointListener implements IJavaBreakpointListener {
 
 	@Override
 	public int breakpointHit(IJavaThread thread, IJavaBreakpoint breakpoint) {
-		// TODO should not install this listener at all
-		if (!JustMyCodePlugin.getDefault().isEnabledPref())
-			return DONT_CARE;
-
 		try {
 			ISourceLocator sourceLocator = thread.getLaunch().getSourceLocator();
 			IStackFrame[] frames = thread.getStackFrames();
