@@ -31,6 +31,7 @@ public class JustMyCodePlugin extends AbstractUIPlugin {
 		Log.log(Status.WARNING, "Started");
 		// XXX why do I need to install manually if it is specified as an extension point ?
 		JDIDebugModel.addJavaBreakpointListener(breakPointListener = new JustMyCodeBreakpointListener());
+		// TODO step filters
 	}
 
 	public void stop(BundleContext context) throws Exception {
