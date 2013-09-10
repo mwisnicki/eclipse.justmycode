@@ -14,6 +14,9 @@ import org.eclipse.jdt.debug.core.IJavaStackFrame;
 import org.eclipse.jdt.debug.core.IJavaThread;
 import org.eclipse.jdt.debug.core.IJavaType;
 
+/**
+ * This breakpoint listener skips breakpoints outside user code.
+ */
 public class JustMyCodeBreakpointListener implements IJavaBreakpointListener {
 
 	@Override

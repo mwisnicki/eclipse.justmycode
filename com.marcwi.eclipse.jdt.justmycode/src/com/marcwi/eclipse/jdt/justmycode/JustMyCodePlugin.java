@@ -33,7 +33,7 @@ public class JustMyCodePlugin extends AbstractUIPlugin implements PreferenceCons
 		super.start(context);
 		plugin = this;
 		getPreferenceStore().addPropertyChangeListener(this);
-		Log.log(Status.WARNING, "Started");
+		Log.log(Status.INFO, "Started");
 		updateBreakpointListener();
 	}
 
