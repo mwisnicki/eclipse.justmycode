@@ -47,7 +47,7 @@ public class JustMyCodeBreakpointListener implements IJavaBreakpointListener {
 				}
 			}
 		} catch (DebugException e) {
-			Log.log(Status.ERROR, e, JustMyCodePlugin.PLUGIN_ID, "breakpointHit error");
+			Log.log(Status.ERROR, e, "breakpointHit error");
 		}
 		return DONT_SUSPEND;
 	}
